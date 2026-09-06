@@ -13,7 +13,6 @@ export const RSVPForm: React.FC<RSVPFormProps> = ({ inviteeName = '', eventName 
   const [formData, setFormData] = useState({
     fullName: inviteeName,
     guests: '1',
-    dietaryNotes: '',
   });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const scriptUrl = "https://script.google.com/macros/s/AKfycbyDuWCJjIQ7egU3VZBzAndlosVuJyfZnbGaEKA47SuOcj6iSQQys1ksRSaphGAB37V_/exec";
@@ -34,7 +33,6 @@ export const RSVPForm: React.FC<RSVPFormProps> = ({ inviteeName = '', eventName 
       payload.append('sheet', 'RSVP');
       payload.append('fullName', formData.fullName);
       payload.append('guests', formData.guests);
-      payload.append('dietaryNotes', formData.dietaryNotes);
       payload.append('event', eventParam);
 
       await fetch(scriptUrl, {
@@ -45,7 +43,7 @@ export const RSVPForm: React.FC<RSVPFormProps> = ({ inviteeName = '', eventName 
 
       setStatus('success');
       toast.success('Your RSVP has been warmly received!');
-      setFormData({ fullName: inviteeName, guests: '1', dietaryNotes: '' });
+      setFormData({ fullName: inviteeName, guests: '1' });
     } catch (error) {
       console.error('Error sending RSVP: ', error);
       setStatus('error');
@@ -89,11 +87,7 @@ export const RSVPForm: React.FC<RSVPFormProps> = ({ inviteeName = '', eventName 
               : `Your presence means the world to us. Please kindly let us know if you will be able to join our celebration.`
             }
           </p>
-          <div className="mt-6 mb-8 text-sm font-sans tracking-[0.2em] uppercase font-semibold text-brand-plum drop-shadow-sm leading-loose">
-            RSVP BY <br />
-            076 429 1756 - Apsara <br /> 
-            076 533 9931 - Teshan
-          </div>
+
           <div className="w-12 h-[1px] bg-brand-lavender/50 mx-auto lg:mx-0" />
         </div>
 
@@ -162,15 +156,7 @@ export const RSVPForm: React.FC<RSVPFormProps> = ({ inviteeName = '', eventName 
                   </div>
                 </div>
 
-                <div>
-                  <label className="block text-[10px] uppercase tracking-[0.2em] font-bold text-stone-500 mb-3 ml-2">Dietary Notes (Optional)</label>
-                  <textarea
-                    placeholder="We'd love to know if you have any allergies..."
-                    className="w-full bg-white/80 px-6 py-4 rounded-[2rem] border border-stone-200/60 focus:ring-2 focus:ring-brand-lavender/30 focus:border-brand-plum/40 outline-none transition-all duration-300 h-28 resize-none font-serif italic text-lg shadow-inner placeholder:text-stone-300"
-                    value={formData.dietaryNotes}
-                    onChange={(e) => setFormData({ ...formData, dietaryNotes: e.target.value })}
-                  />
-                </div>
+
 
                 <div className="pt-4">
                   <button

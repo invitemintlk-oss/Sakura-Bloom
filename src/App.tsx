@@ -2,7 +2,7 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import { AnimatePresence } from 'motion/react';
 import { Toaster } from 'sonner';
 
-import { EnvelopeOpening } from './components/EnvelopeOpening';
+import { IntroVideo } from './components/IntroVideo';
 import { InvitationContent } from './components/InvitationContent';
 import { Admin } from './components/Admin';
 import { INVITATION_IMAGE_URLS, preloadImages } from './utils/preloadImages';
@@ -24,7 +24,7 @@ export default function App() {
 
   let eventLabel = 'Our Wedding Celebration';
 
-  const weddingDate = new Date('2026-08-14T10:15:00');
+  const weddingDate = new Date('2026-12-10T09:17:00');
 
   useEffect(() => {
     if (isAdminRoute()) return;
@@ -42,7 +42,7 @@ export default function App() {
 
   const ensureAudio = useCallback(() => {
     if (!audioRef.current) {
-      audioRef.current = new Audio('/Dreams Come True - Dylan Carwyn Romantic Wedding Song 2025 (Lyrics) - Dazzling Tunes (128k).mp3');
+      audioRef.current = new Audio('/WhatsApp Video 2026-09-06 at 15 (mp3cut.net).mp3');
       audioRef.current.loop = true;
       audioRef.current.volume = 0.3;
       audioRef.current.preload = 'none';
@@ -107,11 +107,10 @@ export default function App() {
 
       <AnimatePresence mode="wait">
         {!showInvitation && (
-          <EnvelopeOpening
-            key="envelope"
+          <IntroVideo
+            key="intro"
             onComplete={handleEnvelopeComplete}
             onMusicStart={handleMusicStart}
-            event={eventParam}
             readyToTransition={assetsReady}
           />
         )}
