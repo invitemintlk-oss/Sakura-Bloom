@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
-import { Sparkles, Heart } from 'lucide-react';
+import { Sparkles, Heart, ChevronDown } from 'lucide-react';
 import { FloatingPetals } from './FloatingPetals';
 
 interface HeroProps {
@@ -133,13 +133,14 @@ export const Hero: React.FC<HeroProps> = ({ event = 'both', inviteeName }) => {
       </div>
 
       <motion.div
-        className="absolute bottom-0 sm:bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer z-30"
+        className="absolute bottom-12 sm:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer z-30"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1, duration: 0.6 }}
       >
-        <span className="text-[9px] sm:text-[10px] font-sans uppercase tracking-[0.5em] text-stone-900 font-extrabold bg-gradient-to-r from-brand-rose via-white to-brand-rose px-5 py-2 rounded-full border border-brand-plum/40 backdrop-blur-md shadow-lg">
+        <span className="text-[9px] sm:text-[10px] font-sans uppercase tracking-[0.5em] text-stone-900 font-extrabold bg-gradient-to-r from-brand-rose via-white to-brand-rose px-5 py-2 rounded-full border border-brand-plum/40 backdrop-blur-md shadow-lg flex items-center justify-center gap-1.5">
           Scroll Down
+          <ChevronDown className="w-3 h-3 text-brand-plum animate-bounce" />
         </span>
         <div className="w-[1px] h-6 sm:h-16 bg-gradient-to-b from-brand-plum to-transparent animate-bounce" />
       </motion.div>
