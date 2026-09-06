@@ -15,7 +15,7 @@ export const RSVPForm: React.FC<RSVPFormProps> = ({ inviteeName = '', eventName 
     guests: '1',
   });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-  const scriptUrl = "https://script.google.com/macros/s/AKfycbyDuWCJjIQ7egU3VZBzAndlosVuJyfZnbGaEKA47SuOcj6iSQQys1ksRSaphGAB37V_/exec";
+  const scriptUrl = "https://script.google.com/macros/s/AKfycbzWYC3LHwVZUsUowuUDHqLGE2iUVw9KIVrXc7TVQ7L0hS-OFv9q9JYdAtJO6ynmMaPQ/exec";
 
   useEffect(() => {
     if (inviteeName) {
@@ -33,7 +33,6 @@ export const RSVPForm: React.FC<RSVPFormProps> = ({ inviteeName = '', eventName 
       payload.append('sheet', 'RSVP');
       payload.append('fullName', formData.fullName);
       payload.append('guests', formData.guests);
-      payload.append('event', eventParam);
 
       await fetch(scriptUrl, {
         method: 'POST',
