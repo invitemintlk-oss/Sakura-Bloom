@@ -464,6 +464,7 @@ export function EnvelopeOpening({
               <div className="text-details">
                 Request the honour of your presence<br />
                 to celebrate their marriage at<br />
+                <span className="text-church">Cumulus Ballroom Hall</span><br />
                 <span className="text-church">Cinnamon Life at City of Dreams</span><br />
                 Colombo
               </div>

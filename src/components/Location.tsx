@@ -10,6 +10,7 @@ export const Location: React.FC<LocationProps> = ({ event = 'both' }) => {
   const venues = [
     {
       id: 'celebration',
+      hall: "Cumulus Ballroom Hall",
       name: "Cinnamon Life at City of Dreams",
       city: "Colombo",
       quote: `"A beautiful and sacred place where we will unite and celebrate our love with joy."`,
@@ -63,7 +64,8 @@ export const Location: React.FC<LocationProps> = ({ event = 'both' }) => {
                         <MapPin className="text-brand-plum w-5 h-5" />
                       </div>
                       <div>
-                        <p className="text-2xl font-serif text-stone-800 mb-1">{venue.name}</p>
+                        <p className="text-2xl sm:text-3xl font-serif text-stone-800 mb-1">{venue.hall}</p>
+                        <p className="text-lg sm:text-xl font-serif text-brand-plum mb-1">{venue.name}</p>
                         <p className="text-[11px] uppercase tracking-[0.2em] font-medium text-stone-400 leading-relaxed mb-6">{venue.city}</p>
                         
                         <p className="text-stone-500/90 italic font-serif text-lg leading-relaxed max-w-sm mb-10 pl-4 border-l-[1.5px] border-brand-lavender/40">

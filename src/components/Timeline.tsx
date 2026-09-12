@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import { Heart, Music, Camera, Utensils, PartyPopper } from 'lucide-react';
 
 const events = [
-  { time: '09:17 AM', title: 'Poruwa Ceremony', icon: Heart, desc: 'The auspicious Poruwa ceremony will commence at Cinnamon Life at City of Dreams.' },
+  { time: '09:17 AM', title: 'Poruwa Ceremony', icon: Heart, desc: 'The auspicious Poruwa ceremony will commence at Cumulus Ballroom Hall, Cinnamon Life at City of Dreams.' },
   { time: '03:30 PM', title: 'Departure', icon: PartyPopper, desc: 'The couple will depart from the venue at 3:30 PM.' },
 ];
 

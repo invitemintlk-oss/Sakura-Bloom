@@ -62,6 +62,9 @@ export const CeremonyDetails: React.FC<CeremonyDetailsProps> = ({ event = 'both'
                   <h4 className="font-serif text-2xl sm:text-3xl text-stone-800 group-hover:text-brand-plum transition-colors duration-500">
                     Location: Cinnamon Life at City of Dreams
                   </h4>
+                  <h4 className="font-serif text-2xl sm:text-3xl text-stone-800 group-hover:text-brand-plum transition-colors duration-500 mt-1">
+                    Hall: Cumulus Ballroom Hall
+                  </h4>
                 </div>
               </div>
 
