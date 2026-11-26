@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { MapPin, Navigation, Compass, Map } from 'lucide-react';
+import { WEDDING, COUPLE_NAMES } from '../config/wedding';
 
 interface LocationProps {
   event?: string | null;
@@ -10,12 +11,12 @@ export const Location: React.FC<LocationProps> = ({ event = 'both' }) => {
   const venues = [
     {
       id: 'celebration',
-      hall: "Cumulus Ballroom Hall",
-      name: "Cinnamon Life at City of Dreams",
-      city: "Colombo",
-      quote: `"A beautiful and sacred place where we will unite and celebrate our love with joy."`,
-      liveLocationUrl: "https://maps.app.goo.gl/bqYUw6SnqUYfkERL8",
-      imageUrl: "https://d18slle4wlf9ku.cloudfront.net/www.cinnamonhotels.com-1754953340/cms/imagepool/68fee5fb1582c.png",
+      hall: WEDDING.venue.hall,
+      name: WEDDING.venue.name,
+      city: WEDDING.venue.city,
+      quote: WEDDING.venue.quote,
+      liveLocationUrl: WEDDING.venue.mapUrl,
+      imageUrl: WEDDING.venue.imageUrl,
       label: "The Celebration"
     }
   ];

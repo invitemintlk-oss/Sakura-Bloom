@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { useForm } from 'react-hook-form';
 import { Heart } from 'lucide-react';
 import { toast } from 'sonner';
+import { WEDDING, COUPLE_NAMES } from '../config/wedding';
 
 interface BlessingData {
   name: string;
@@ -12,7 +13,7 @@ interface BlessingData {
 export function BlessingForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { register, handleSubmit, reset, formState: { errors } } = useForm<BlessingData>();
-  const scriptUrl = "https://script.google.com/macros/s/AKfycbzWYC3LHwVZUsUowuUDHqLGE2iUVw9KIVrXc7TVQ7L0hS-OFv9q9JYdAtJO6ynmMaPQ/exec";
+  const scriptUrl = WEDDING.formsScriptUrl;
 
   const onSubmit = async (data: BlessingData) => {
     setIsSubmitting(true);

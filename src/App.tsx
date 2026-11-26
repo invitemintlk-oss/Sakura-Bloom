@@ -3,9 +3,10 @@ import { AnimatePresence } from 'motion/react';
 import { Toaster } from 'sonner';
 
 import { IntroVideo } from './components/IntroVideo';
-import { InvitationContent } from './components/InvitationContent';
+import { SakuraInvitation, SAKURA_IMAGE_URLS } from './components/SakuraInvitation';
 import { Admin } from './components/Admin';
-import { INVITATION_IMAGE_URLS, preloadImages } from './utils/preloadImages';
+import { preloadImages } from './utils/preloadImages';
+import { WEDDING, COUPLE_NAMES } from './config/wedding';
 
 const isAdminRoute = () => window.location.pathname === '/admin';
 
@@ -24,14 +25,18 @@ export default function App() {
 
   let eventLabel = 'Our Wedding Celebration';
 
-  const weddingDate = new Date('2026-12-10T09:17:00');
+  const weddingDate = new Date(WEDDING.dateISO);
+
+  useEffect(() => {
+    document.title = `${COUPLE_NAMES}'s Wedding Invitation`;
+  }, []);
 
   useEffect(() => {
     if (isAdminRoute()) return;
 
     let cancelled = false;
 
-    preloadImages([...INVITATION_IMAGE_URLS]).then(() => {
+    preloadImages([...SAKURA_IMAGE_URLS, WEDDING.introImage]).then(() => {
       if (!cancelled) setAssetsReady(true);
     });
 
@@ -42,7 +47,7 @@ export default function App() {
 
   const ensureAudio = useCallback(() => {
     if (!audioRef.current) {
-      audioRef.current = new Audio('/WhatsApp Video 2026-09-06 at 15 (mp3cut.net).mp3');
+      audioRef.current = new Audio(WEDDING.music);
       audioRef.current.loop = true;
       audioRef.current.volume = 0.3;
       audioRef.current.preload = 'none';
@@ -95,7 +100,7 @@ export default function App() {
     <>
       <Toaster position="top-center" />
 
-      <InvitationContent
+      <SakuraInvitation
         active={showInvitation}
         eventParam={eventParam}
         fullInviteeName={fullInviteeName}

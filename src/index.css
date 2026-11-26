@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Great+Vibes&family=Inter:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Great+Vibes&family=Pinyon+Script&family=Inter:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -9,11 +9,35 @@
   --color-brand-blush: #fffff4;
 
   --font-serif: "Cormorant Garamond", serif;
-  --font-display: "Great Vibes", cursive;
+  --font-display: "Pinyon Script", cursive;
   --font-names: "Cinzel Decorative", serif;
   --font-century: "Century", "Century Schoolbook", serif;
   --font-sans: "Inter", sans-serif;
   --font-playfair: "Playfair Display", serif;
+
+  /* Sakura theme */
+  --color-sakura-ivory: #fff8f7;
+  --color-sakura-blush: #fbe6ea;
+  --color-sakura-pink: #f4c6d0;
+  --color-sakura-deep: #b85c74;
+  --color-sakura-plum: #5b3a46;
+  --color-sakura-rose: #9e3d5a;
+}
+
+/* Falling sakura flowers */
+@keyframes sakura-fall {
+  0%   { transform: translate3d(0, -10vh, 0) rotate(0deg); }
+  50%  { transform: translate3d(var(--drift, 40px), 50vh, 0) rotate(180deg); }
+  100% { transform: translate3d(0, 110vh, 0) rotate(360deg); }
+}
+.sakura-fall {
+  animation-name: sakura-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  .sakura-fall { display: none; }
 }
 
 :root {

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Send, Loader2, Sparkles } from 'lucide-react';
 import { toast } from 'sonner';
+import { WEDDING, COUPLE_NAMES } from '../config/wedding';
 
 interface Wish {
   id: string;
@@ -35,7 +36,7 @@ export const WishesSection: React.FC<WishesSectionProps> = ({ eventParam = 'both
       setFormData(prev => ({ ...prev, name: inviteeName }));
     }
   }, [inviteeName]);
-  const scriptUrl = "https://script.google.com/macros/s/AKfycbzWYC3LHwVZUsUowuUDHqLGE2iUVw9KIVrXc7TVQ7L0hS-OFv9q9JYdAtJO6ynmMaPQ/exec";
+  const scriptUrl = WEDDING.formsScriptUrl;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

@@ -1,11 +1,14 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Heart, Music, Camera, Utensils, PartyPopper } from 'lucide-react';
+import { WEDDING, COUPLE_NAMES } from '../config/wedding';
 
-const events = [
-  { time: '09:17 AM', title: 'Poruwa Ceremony', icon: Heart, desc: 'The auspicious Poruwa ceremony will commence at Cumulus Ballroom Hall, Cinnamon Life at City of Dreams.' },
-  { time: '03:30 PM', title: 'Departure', icon: PartyPopper, desc: 'The couple will depart from the venue at 3:30 PM.' },
-];
+const events = WEDDING.schedule.map((s) => ({
+  time: s.time,
+  title: s.label,
+  icon: s.label.toLowerCase().includes('poruwa') ? Heart : PartyPopper,
+  desc: `${s.label} at ${WEDDING.venue.hall}, ${WEDDING.venue.name}.`,
+}));
 
 interface TimelineProps {
   event?: string | null;

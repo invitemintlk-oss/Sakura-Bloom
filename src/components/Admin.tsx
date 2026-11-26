@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Copy, Check, ExternalLink, Sparkles, User, Calendar, Link as LinkIcon, Trash2, ArrowLeft } from 'lucide-react';
 import { toast } from 'sonner';
+import { WEDDING, COUPLE_NAMES } from '../config/wedding';
 
 export const Admin: React.FC = () => {
   const [guestTitle, setGuestTitle] = useState('Mr.');
@@ -50,7 +51,7 @@ ${url}
 Your presence would truly mean the world to us, and we would be honored to celebrate this beautiful moment together.
 
 With love,
-❤️ Akil & Sanjana`;
+❤️ ${COUPLE_NAMES}`;
   };
 
   const handleCopyMessageActive = () => {

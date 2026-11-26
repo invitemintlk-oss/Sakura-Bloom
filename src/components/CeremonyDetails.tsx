@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Clock, Calendar, MapPin, Heart, Sparkles, Palette } from 'lucide-react';
+import { WEDDING, COUPLE_NAMES } from '../config/wedding';
 
 interface CeremonyDetailsProps {
   event?: string | null;
@@ -48,7 +49,7 @@ export const CeremonyDetails: React.FC<CeremonyDetailsProps> = ({ event = 'both'
                 </div>
                 <div>
                   <h4 className="font-serif text-2xl sm:text-3xl text-stone-800 group-hover:text-brand-plum transition-colors duration-500">
-                    Date: December 10, 2026
+                    Date: {WEDDING.dateText}
                   </h4>
                 </div>
               </div>
@@ -60,49 +61,26 @@ export const CeremonyDetails: React.FC<CeremonyDetailsProps> = ({ event = 'both'
                 </div>
                 <div>
                   <h4 className="font-serif text-2xl sm:text-3xl text-stone-800 group-hover:text-brand-plum transition-colors duration-500">
-                    Location: Cinnamon Life at City of Dreams
+                    Location: {WEDDING.venue.name}
                   </h4>
                   <h4 className="font-serif text-2xl sm:text-3xl text-stone-800 group-hover:text-brand-plum transition-colors duration-500 mt-1">
-                    Hall: Cumulus Ballroom Hall
+                    Hall: {WEDDING.venue.hall}
                   </h4>
                 </div>
               </div>
 
-              {/* Reception */}
-              <div className="relative group flex items-center min-h-[48px]">
+              {WEDDING.schedule.map((item) => (
+              <div key={item.label} className="relative group flex items-center min-h-[48px]">
                 <div className="absolute top-1/2 -translate-y-1/2 -left-[64px] sm:-left-[74px] w-12 h-12 bg-white rounded-full border border-brand-lavender/40 shadow-lg flex items-center justify-center group-hover:border-brand-plum group-hover:shadow-[0_4px_15px_rgba(176,137,104,0.3)] transition-all duration-500">
                   <Clock className="w-5 h-5 text-brand-plum group-hover:scale-110 transition-transform duration-500" />
                 </div>
                 <div>
                   <h4 className="font-serif text-2xl sm:text-3xl text-stone-800 group-hover:text-brand-plum transition-colors duration-500">
-                    Reception: 9:30 AM
+                    {item.label}: {item.time}
                   </h4>
                 </div>
               </div>
-
-              {/* Poruwa */}
-              <div className="relative group flex items-center min-h-[48px]">
-                <div className="absolute top-1/2 -translate-y-1/2 -left-[64px] sm:-left-[74px] w-12 h-12 bg-white rounded-full border border-brand-lavender/40 shadow-lg flex items-center justify-center group-hover:border-brand-plum group-hover:shadow-[0_4px_15px_rgba(176,137,104,0.3)] transition-all duration-500">
-                  <Clock className="w-5 h-5 text-brand-plum group-hover:scale-110 transition-transform duration-500" />
-                </div>
-                <div>
-                  <h4 className="font-serif text-2xl sm:text-3xl text-stone-800 group-hover:text-brand-plum transition-colors duration-500">
-                    Poruwa Ceremony: 9:17 AM
-                  </h4>
-                </div>
-              </div>
-
-              {/* Departure */}
-              <div className="relative group flex items-center min-h-[48px]">
-                <div className="absolute top-1/2 -translate-y-1/2 -left-[64px] sm:-left-[74px] w-12 h-12 bg-white rounded-full border border-brand-lavender/40 shadow-lg flex items-center justify-center group-hover:border-brand-plum group-hover:shadow-[0_4px_15px_rgba(176,137,104,0.3)] transition-all duration-500">
-                  <Clock className="w-5 h-5 text-brand-plum group-hover:scale-110 transition-transform duration-500" />
-                </div>
-                <div>
-                  <h4 className="font-serif text-2xl sm:text-3xl text-stone-800 group-hover:text-brand-plum transition-colors duration-500">
-                    Departure: 3:30 PM
-                  </h4>
-                </div>
-              </div>
+              ))}
 
 
             </div>
